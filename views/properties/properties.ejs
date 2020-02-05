@@ -1,0 +1,30 @@
+<%- include ("../partials/header") %>
+
+<div class = "container">
+	
+	<header class = "jumbotron">
+		<div class = "container">
+			<h1>Rosemary's Rental Properties</h1>
+			<p>Rent a room at one of Rosemary Jackson's houses</p>
+		</div>		
+	</header>
+	
+	<div class ="row text-center" style = "display:flex; flex-wrap: wrap;">
+	
+		<% properties.forEach(function(property){ %>
+			<div class = "col-md-3 col-sm-6">
+				<div class = "thumbnail">
+					<img src="<%= property.image %>" > 
+					<div class = "caption">
+						<h4><%= property.name %></h4>
+					</div>
+					<p>
+						<a href="/properties/<%= property._id%>" class="btn btn-primary">Book A Room</a>	
+					</p>
+				</div>
+			</div>
+
+		<%});%>
+	</div>
+</div>	
+<%- include ("../partials/footer") %>

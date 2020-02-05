@@ -1,0 +1,48 @@
+<%- include("../partials/header") %>
+
+<h1 class="text-center"><%=property.name%></h1>
+
+<div class="thumbnail">
+	<img class="img-responsive" src="<%=property.image %>">
+	<p><%= property.description %></p>
+	<p>Check for room availability below before booking	</p>
+</div>
+
+
+<div class ="row text-center" style = "display:flex; flex-wrap: wrap;">
+	<div class="col-sm-6 col-lg-4">
+		<div class="thumbnail">
+			<img class = "imsz" src="<%= property.rm1img%>"> 
+		
+			<a href="/properties/<%= property._id %>/bookings/new" class="btn btn-primary" >Book Room 1</a>
+		</div>		  
+	</div>			 
+	<div class="col-sm-6 col-lg-4">
+		<div class="thumbnail">
+			<img class = "imsz" src="<%= property.rm2img%>"> 
+			
+			<a href="/properties/<%= property._id %>/bookings/new" class="btn btn-primary" >Book Room 2</a>
+		</div>		  
+	</div>
+	<div class="col-sm-6 col-lg-4">
+		<div class="thumbnail">
+			<img class = "imsz" src="<%= property.rm3img%>">
+			
+			<a href="/properties/<%= property._id %>/bookings/new" class="btn btn-primary" >Book Room 3</a>
+		</div>		  
+	</div>		
+</div>
+
+<div class="well">
+	<% property.bookings.forEach(function(booking){ %>
+		<div class="row">
+			<div class="col-md-12">
+				<strong><%= booking.bookingFor %></strong> 
+				<p>Room Number <%= booking.roomNum %> booked - <%= booking.date_inn %> - <%= booking.date_out %></p>
+			</div>
+		</div>
+		
+	<% }) %>
+</div>
+	
+<%- include("../partials/footer") %>
